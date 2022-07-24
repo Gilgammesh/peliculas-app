@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
+import GradientBg from '../components/GradientBg';
 import HorizontalCarousel from '../components/HorizontalCarousel';
 import HorizontalSlider from '../components/HorizontalSlider';
 import useMovies from '../hooks/useMovies';
@@ -25,29 +26,35 @@ const HomeScreen = () => {
   }
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        {nowMovies && <HorizontalCarousel movies={nowMovies} />}
-        {nowMovies && (
-          <HorizontalSlider
-            type="movie"
-            data={nowMovies}
-            title="En cartelera"
-          />
-        )}
-        {popMovies && (
-          <HorizontalSlider type="movie" data={popMovies} title="Populares" />
-        )}
-        {topMovies && (
-          <HorizontalSlider
-            type="movie"
-            data={topMovies}
-            title="Mejor calificadas"
-          />
-        )}
-        {upMovies && (
-          <HorizontalSlider type="movie" data={upMovies} title="Próximamente" />
-        )}
-      </ScrollView>
+      <GradientBg>
+        <ScrollView>
+          {nowMovies && <HorizontalCarousel movies={nowMovies} />}
+          {nowMovies && (
+            <HorizontalSlider
+              type="movie"
+              data={nowMovies}
+              title="En cartelera"
+            />
+          )}
+          {popMovies && (
+            <HorizontalSlider type="movie" data={popMovies} title="Populares" />
+          )}
+          {topMovies && (
+            <HorizontalSlider
+              type="movie"
+              data={topMovies}
+              title="Mejor calificadas"
+            />
+          )}
+          {upMovies && (
+            <HorizontalSlider
+              type="movie"
+              data={upMovies}
+              title="Próximamente"
+            />
+          )}
+        </ScrollView>
+      </GradientBg>
     </SafeAreaView>
   );
 };
